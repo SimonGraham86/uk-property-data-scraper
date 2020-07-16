@@ -13,6 +13,8 @@ The following third party libraries will need to be installed for the app to wor
 ## How to use
 From your command prompt, once you're in the correct directory, enter `python front_end.py`.
 
+![alt text](https://github.com/SimonGraham86/uk-property-data-scraper/blob/master/property_app.gif)
+
 ## Contributions
 If anyone would like to contribute on ways to improve the code, that would be greatly appreciated.
 
