@@ -3,7 +3,7 @@
 This app scrapes data from the UK property site [Zoopla](www.zoopla.co.uk). It allows you to make certain selections such as what city, how many rooms, and your preferred price range. You can then download the results to your downloads folder.
 
 ## Libraries
-The following third party libraries will need to installed for the app to work:
+The following third party libraries will need to be installed for the app to work:
 
 1. bs4
 2. pandas

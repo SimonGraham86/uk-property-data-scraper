@@ -5,6 +5,10 @@ first_url_start = "https://www.zoopla.co.uk/for-sale/houses"
 base_url = "https://www.zoopla.co.uk"
 df = pandas.DataFrame()
 
+
+#This function brings together all of the parts of the URL based on the what has been chosen in the front end GUI.
+#It then updates the 'global' pandas DataFrame.
+#It returns the size of the DataFrame.
 def search_website(city, min_price, max_price, min_beds, max_beds):
 	global df
 	city_1, city_2 = city_http(city)
@@ -17,13 +21,20 @@ def search_website(city, min_price, max_price, min_beds, max_beds):
 	first_url = first_url_start + city_1 + beds_max + beds_min + price_max + price_min + extra + city_2
 	df = house_data.get_data(base_url, first_url)
 	return df.size
-	
+
+#This function saves the 'global' pandas DataFrame to the user's Downloads folder using the function 'house_data.save_csv()'.'
 def save_file(df):
 	house_data.save_csv(df)
 
+#This function returns the 'global' pandas DataFrame.
 def get_df():
 	return df
 
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#The below functions return parts of the URL that are needed for the different searches.
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+#This function returns the city1 and city2 variables, depending on what city has been chosen from the front end GUI.
 def city_http(city):
 	if city == "Birmingham":
 		city_1 = "/birmingham/?"
@@ -87,6 +98,7 @@ def city_http(city):
 		city_2 = "q=york&radius=0&results_sort=lowest_price&search_source=refine"
 	return (city_1, city_2)
 
+#This function returns the minimum price that has been chosen from the front end GUI.
 def min_price_http(min_price, max_price, min_beds, max_beds):
 	if min_price == "":
 		minimum_price = ""
@@ -96,6 +108,7 @@ def min_price_http(min_price, max_price, min_beds, max_beds):
 		minimum_price = f"&price_min={min_price}"
 	return minimum_price
 
+#This function returns the maximum price that has been chosen from the front end GUI.
 def max_price_http(max_price, min_beds, max_beds):
 	if max_price == "":
 		maximum_price = ""
@@ -105,6 +118,7 @@ def max_price_http(max_price, min_beds, max_beds):
 		maximum_price = f"&price_max={max_price}"
 	return maximum_price
 
+#This function returns the minimum bedrooms that have been chosen from the front end GUI.
 def min_beds_http(min_beds, max_beds):
 	if min_beds == "":
 		minimum_beds = ""
@@ -114,6 +128,7 @@ def min_beds_http(min_beds, max_beds):
 		minimum_beds = f"&beds_min={min_beds}"
 	return minimum_beds
 
+#This function returns the maximum bedrooms that have been chosen from the front end GUI.
 def max_beds_http(max_beds):
 	if max_beds == "":
 		maximum_beds = ""
@@ -121,6 +136,8 @@ def max_beds_http(max_beds):
 		maximum_beds = f"beds_max={max_beds}"
 	return maximum_beds
 
+#This returns an ampersand (&) if one or more of the price/bedroom options have been chosen in the front end GUI.
+#If not, it will return "".
 def extra_http(min_price, max_price, min_beds, max_beds):
 	if min_price == "" and max_price == "" and min_beds == "" and max_beds == "":
 		extra = ""
