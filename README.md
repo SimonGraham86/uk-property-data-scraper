@@ -19,4 +19,4 @@ From your command prompt, once you're in the correct directory, enter `python fr
 If anyone would like to contribute on ways to improve the code, that would be greatly appreciated.
 
 ## Support
-If there are any issue or any questiosn about the code, please let me know through the issue tracker.
+If there are any issue or any questions about the code, please let me know through the issue tracker.
